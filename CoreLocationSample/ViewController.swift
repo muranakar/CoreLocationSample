@@ -55,14 +55,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             )
             pediatricWelfareServices.append(a)
         }
-        pediatricWelfareServices.forEach { service in
-            let annotation = geocodingAddress(service: service)
-            annotationArray.append(annotation)
-        }
+
         print(annotationArray)
     }
-    override func viewDidLayoutSubviews() {
-
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        pediatricWelfareServices.forEach { service in
+            guard let annotation = geocodingAddress(service: service) else { return }
+            annotationArray.append(annotation)
+        }
+    }
+    private func geocodingAddress(service: PediatricWelfareService) -> MKPointAnnotation?{
+        var latResult: CLLocationDegrees!
+        var lngResult: CLLocationDegrees!
+        print(service.address)
+        CLGeocoder().geocodeAddressString(service.address) {placemarks, error in
+            guard let lat = placemarks?.first?.location?.coordinate.latitude else{
+                print(service.address)
+                print("失敗lng")
+                return
+            }
+            guard let lng = placemarks?.first?.location?.coordinate.longitude else{
+                print("失敗lng")
+                return
+            }
+            latResult = lat
+            lngResult = lng
+            print(latResult)
+        }
+        print(latResult)
+        if (latResult != nil && lngResult != nil) {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(latResult, lngResult)
+            annotation.title = "\(service.officeName)"
+            annotation.subtitle = "\(service.corporateName)"
+            return annotation
+        }
+        return nil
     }
 
     func setupLococationManager() {
@@ -112,35 +140,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                                                           longitudinalMeters: horizontalRegionInMeters)
        mapView.setRegion(region, animated: true)
     }
-
-    private func geocodingAddress(service: PediatricWelfareService) -> MKPointAnnotation{
-        var latResult: CLLocationDegrees = 0
-        var lngResult: CLLocationDegrees = 0
-        CLGeocoder().geocodeAddressString(service.address) {placemarks, error in
-            guard let lat = placemarks?.first?.location?.coordinate.latitude else{
-                print("失敗lng")
-                return
-            }
-            guard let lng = placemarks?.first?.location?.coordinate.longitude else{
-                print("失敗lng")
-                return
-            }
-            latResult = lat
-            lngResult = lng
-            
-
-        }
-        print(latResult)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2DMake(latResult, lngResult)
-        annotation.title = "\(service.officeName)"
-        annotation.subtitle = "\(service.corporateName)"
-        return annotation
-    }
-
-
-
-
 
 
 
