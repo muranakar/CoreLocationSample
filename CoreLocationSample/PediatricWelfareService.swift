@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct PediatricWelfareService {
     let officeNumber: String
@@ -18,4 +19,6 @@ struct PediatricWelfareService {
     let address: String
     let telephoneNumber: String
     let fax: String
+    let latitude: String
+    let longitude: String
 }
