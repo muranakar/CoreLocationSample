@@ -17,10 +17,8 @@ class MapViewController: UIViewController{
         case visitSupport
     }
     @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet weak var titileLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
-
-    @IBOutlet weak var telButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var faxLabel: UILabel!
 
 
@@ -53,14 +51,18 @@ class MapViewController: UIViewController{
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2DMake(lat, lng)
         annotation.title = "\(service.officeName)"
-        annotation.subtitle = "\(service.corporateName)"
+
         annotationArray.append(annotation)
     }
     private func configureViewLableAnnotationSelected(service: PediatricWelfareService) {
-        titileLabel.text = service.officeName
-        subTitleLabel.text = service.corporateName
-        telButton.titleLabel?.text = service.telephoneNumber
+        titleLabel.text = service.officeName
+        telLabel.text = service.telephoneNumber
         faxLabel.text = service.fax
+    }
+    private func configureViewLabelInitialSetting(){
+        titleLabel.text = ""
+        telLabel.text = ""
+        faxLabel.text = ""
     }
 }
 
@@ -79,7 +81,6 @@ extension MapViewController: MKMapViewDelegate {
                 pediatricWelfareServices.filter({ $0.officeName == title }).first else { return }
         selectedPediatricWelfareService = selectedService
         configureViewLableAnnotationSelected(service: selectedPediatricWelfareService!)
-
     }
 }
 
