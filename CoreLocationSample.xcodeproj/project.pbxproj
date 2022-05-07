@@ -21,6 +21,9 @@
 		B2CDF13928270DBD00E362D1 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CDF13828270DBD00E362D1 /* Map.storyboard */; };
 		B2CDF13B28270DC900E362D1 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CDF13A28270DC900E362D1 /* Setting.storyboard */; };
 		B2CDF14028271F7C00E362D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDF13F28271F7C00E362D1 /* SettingViewController.swift */; };
+		B2CDF142282724A700E362D1 /* ServiceItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDF141282724A700E362D1 /* ServiceItemRepository.swift */; };
+		B2CDF144282726B700E362D1 /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDF143282726B700E362D1 /* ServiceItem.swift */; };
+		B2CDF14628272D9800E362D1 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDF14528272D9800E362D1 /* UseCase.swift */; };
 		B2D916DF2821608600642C44 /* PediatricWelfareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D916DE2821608600642C44 /* PediatricWelfareService.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		B2CDF13828270DBD00E362D1 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		B2CDF13A28270DC900E362D1 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		B2CDF13F28271F7C00E362D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B2CDF141282724A700E362D1 /* ServiceItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemRepository.swift; sourceTree = "<group>"; };
+		B2CDF143282726B700E362D1 /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
+		B2CDF14528272D9800E362D1 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		B2D916DE2821608600642C44 /* PediatricWelfareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PediatricWelfareService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,9 @@
 				B20E97A8282074390033A4B7 /* AppDelegate.swift */,
 				B20E97AA282074390033A4B7 /* SceneDelegate.swift */,
 				B29156462823168400BAD79D /* CSVConversion.swift */,
+				B2CDF14528272D9800E362D1 /* UseCase.swift */,
+				B2CDF141282724A700E362D1 /* ServiceItemRepository.swift */,
+				B2CDF143282726B700E362D1 /* ServiceItem.swift */,
 				B2D916DE2821608600642C44 /* PediatricWelfareService.swift */,
 				B20E97AE282074390033A4B7 /* Main.storyboard */,
 				B2CDF13C28270F1800E362D1 /* Map */,
@@ -299,7 +308,10 @@
 				B2D916DF2821608600642C44 /* PediatricWelfareService.swift in Sources */,
 				B20E97AD282074390033A4B7 /* MapViewController.swift in Sources */,
 				B20E97A9282074390033A4B7 /* AppDelegate.swift in Sources */,
+				B2CDF144282726B700E362D1 /* ServiceItem.swift in Sources */,
 				B20E97AB282074390033A4B7 /* SceneDelegate.swift in Sources */,
+				B2CDF14628272D9800E362D1 /* UseCase.swift in Sources */,
+				B2CDF142282724A700E362D1 /* ServiceItemRepository.swift in Sources */,
 				B2CDF14028271F7C00E362D1 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

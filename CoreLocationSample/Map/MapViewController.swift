@@ -10,23 +10,18 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController{
-    enum SelectedService {
-        case consultationSupport
-        case childDevelopmentSupport
-        case afterSchoolDayService
-        case visitSupport
-    }
+   
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var faxLabel: UILabel!
 
-
-
     private var locationManager: CLLocationManager!
     private var didStartUpdatingLocation = false
     private var searchedMapItems:[MKMapItem] = []
 
+    private let useCase = UseCase()
+    private var serviceItem: ServiceItem = .childDevelopmentSupport
     private var pediatricWelfareServices: [PediatricWelfareService] = []
     private var annotationArray:[MKPointAnnotation] = []
     private var selectedPediatricWelfareService: PediatricWelfareService?
@@ -35,7 +30,7 @@ class MapViewController: UIViewController{
         super.viewDidLoad()
         mapView.delegate = self
         setupLococationManager()
-        pediatricWelfareServices = CSVConversion.convertPediatricWelfareServicesFromCsv()
+        pediatricWelfareServices = useCase.loadServiceType(serviceItem: serviceItem)
     }
 
     @IBAction func tapTel(_ sender: Any) {
