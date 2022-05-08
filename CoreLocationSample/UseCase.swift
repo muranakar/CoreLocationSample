@@ -14,16 +14,15 @@ struct UseCase {
         allpediatricWelfareServices = CSVConversion.convertPediatricWelfareServicesFromCsv()
     }
 
-    func loadAllService() -> [PediatricWelfareService] {
-        return allpediatricWelfareServices
-    }
-
     func loadServiceType(serviceItem: ServiceItem) -> [PediatricWelfareService] {
-        print(allpediatricWelfareServices)
-        let filterPediatricWelfareServices = allpediatricWelfareServices
-            .filter{ $0.serviceType.contains(serviceItem.serviceTypeStringForFiltering)}
-        print(filterPediatricWelfareServices)
-        return filterPediatricWelfareServices
+        switch serviceItem {
+        case .allService:
+            return allpediatricWelfareServices
+        case .consultationSupport,.childDevelopmentSupport,.afterSchoolDayService,.visitSupport:
+            let filterPediatricWelfareServices = allpediatricWelfareServices
+                .filter{ $0.serviceType.contains(serviceItem.serviceTypeStringForFiltering)}
+            return filterPediatricWelfareServices
+        }
     }
 }
 
