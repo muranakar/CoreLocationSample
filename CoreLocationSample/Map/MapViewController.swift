@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController{
-   
+
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var telLabel: UILabel!
@@ -20,8 +20,9 @@ class MapViewController: UIViewController{
     private var didStartUpdatingLocation = false
     private var searchedMapItems:[MKMapItem] = []
 
-    private let useCase = UseCase()
-    private var serviceItem: ServiceItem = .childDevelopmentSupport
+    private let usecase = UseCase()
+    private let serviceItemRepository = ServiceItemRepository()
+    private var serviceItem: ServiceItem = .allService
     private var pediatricWelfareServices: [PediatricWelfareService] = []
     private var annotationArray:[MKPointAnnotation] = []
     private var selectedPediatricWelfareService: PediatricWelfareService?
@@ -30,7 +31,20 @@ class MapViewController: UIViewController{
         super.viewDidLoad()
         mapView.delegate = self
         setupLococationManager()
-        pediatricWelfareServices = useCase.loadServiceType(serviceItem: serviceItem)
+        serviceItemRepository.save(serviceItem: serviceItem)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        serviceItem = serviceItemRepository.load()
+        pediatricWelfareServices = usecase.loadServiceType(serviceItem: serviceItem)
+        pediatricWelfareServices.forEach {
+            geocodingAddressAndAppendAnnotation(service: $0)
+        }
+
+        mapView.addAnnotations(annotationArray)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        mapView.removeAnnotations(annotationArray)
+        annotationArray = []
     }
 
     @IBAction func tapTel(_ sender: Any) {
@@ -40,7 +54,7 @@ class MapViewController: UIViewController{
     }
 
 
-    private func geocodingAddress(service: PediatricWelfareService){
+    private func geocodingAddressAndAppendAnnotation(service: PediatricWelfareService){
         let lat = Double(service.latitude)!
         let lng = Double(service.longitude)!
         let annotation = MKPointAnnotation()
@@ -63,10 +77,6 @@ class MapViewController: UIViewController{
 
 extension MapViewController: MKMapViewDelegate {
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        pediatricWelfareServices.forEach {
-            geocodingAddress(service: $0)
-        }
-        mapView.addAnnotations(annotationArray)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -77,6 +87,24 @@ extension MapViewController: MKMapViewDelegate {
         selectedPediatricWelfareService = selectedService
         configureViewLableAnnotationSelected(service: selectedPediatricWelfareService!)
     }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        let identifier = "annotation"
+             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+                 annotationView.annotation = annotation
+                 return annotationView
+             } else {
+                 let annotationView = MKMarkerAnnotationView(
+                     annotation: annotation,
+                     reuseIdentifier: identifier
+                 )
+                 annotationView.markerTintColor = .blue
+                 return annotationView
+             }
+    }
+
+
 }
 
 

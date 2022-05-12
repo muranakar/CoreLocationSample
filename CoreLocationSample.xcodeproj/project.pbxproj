@@ -16,8 +16,11 @@
 		B20E97C02820743E0033A4B7 /* CoreLocationSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E97BF2820743E0033A4B7 /* CoreLocationSampleTests.swift */; };
 		B20E97CA2820743E0033A4B7 /* CoreLocationSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E97C92820743E0033A4B7 /* CoreLocationSampleUITests.swift */; };
 		B20E97CC2820743E0033A4B7 /* CoreLocationSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E97CB2820743E0033A4B7 /* CoreLocationSampleUITestsLaunchTests.swift */; };
+		B290D8F92829ACB900680B94 /* RequestViaTwitterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290D8F82829ACB900680B94 /* RequestViaTwitterButton.swift */; };
+		B290D8FB2829B1EB00680B94 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290D8FA2829B1EB00680B94 /* Colors.swift */; };
 		B29156472823168400BAD79D /* CSVConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29156462823168400BAD79D /* CSVConversion.swift */; };
 		B291564928232AC300BAD79D /* NishinomiyaPediatricWelfareServices.csv in Resources */ = {isa = PBXBuildFile; fileRef = B291564828232AC300BAD79D /* NishinomiyaPediatricWelfareServices.csv */; };
+		B2981490282DD27F00A3D0C3 /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B298148F282DD27F00A3D0C3 /* Prefecture.swift */; };
 		B2CDF13928270DBD00E362D1 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CDF13828270DBD00E362D1 /* Map.storyboard */; };
 		B2CDF13B28270DC900E362D1 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CDF13A28270DC900E362D1 /* Setting.storyboard */; };
 		B2CDF14028271F7C00E362D1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDF13F28271F7C00E362D1 /* SettingViewController.swift */; };
@@ -58,8 +61,11 @@
 		B20E97C52820743E0033A4B7 /* CoreLocationSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreLocationSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20E97C92820743E0033A4B7 /* CoreLocationSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationSampleUITests.swift; sourceTree = "<group>"; };
 		B20E97CB2820743E0033A4B7 /* CoreLocationSampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationSampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B290D8F82829ACB900680B94 /* RequestViaTwitterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViaTwitterButton.swift; sourceTree = "<group>"; };
+		B290D8FA2829B1EB00680B94 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B29156462823168400BAD79D /* CSVConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVConversion.swift; sourceTree = "<group>"; };
 		B291564828232AC300BAD79D /* NishinomiyaPediatricWelfareServices.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NishinomiyaPediatricWelfareServices.csv; sourceTree = "<group>"; };
+		B298148F282DD27F00A3D0C3 /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		B2CDF13828270DBD00E362D1 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		B2CDF13A28270DC900E362D1 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		B2CDF13F28271F7C00E362D1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -124,9 +130,12 @@
 				B2CDF141282724A700E362D1 /* ServiceItemRepository.swift */,
 				B2CDF143282726B700E362D1 /* ServiceItem.swift */,
 				B2D916DE2821608600642C44 /* PediatricWelfareService.swift */,
+				B298148F282DD27F00A3D0C3 /* Prefecture.swift */,
 				B20E97AE282074390033A4B7 /* Main.storyboard */,
 				B2CDF13C28270F1800E362D1 /* Map */,
 				B2CDF13D28270F2800E362D1 /* Setting */,
+				B290D8F82829ACB900680B94 /* RequestViaTwitterButton.swift */,
+				B290D8FA2829B1EB00680B94 /* Colors.swift */,
 				B20E97B12820743D0033A4B7 /* Assets.xcassets */,
 				B291564828232AC300BAD79D /* NishinomiyaPediatricWelfareServices.csv */,
 				B20E97B32820743D0033A4B7 /* LaunchScreen.storyboard */,
@@ -304,12 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2981490282DD27F00A3D0C3 /* Prefecture.swift in Sources */,
 				B29156472823168400BAD79D /* CSVConversion.swift in Sources */,
+				B290D8FB2829B1EB00680B94 /* Colors.swift in Sources */,
 				B2D916DF2821608600642C44 /* PediatricWelfareService.swift in Sources */,
 				B20E97AD282074390033A4B7 /* MapViewController.swift in Sources */,
 				B20E97A9282074390033A4B7 /* AppDelegate.swift in Sources */,
 				B2CDF144282726B700E362D1 /* ServiceItem.swift in Sources */,
 				B20E97AB282074390033A4B7 /* SceneDelegate.swift in Sources */,
+				B290D8F92829ACB900680B94 /* RequestViaTwitterButton.swift in Sources */,
 				B2CDF14628272D9800E362D1 /* UseCase.swift in Sources */,
 				B2CDF142282724A700E362D1 /* ServiceItemRepository.swift in Sources */,
 				B2CDF14028271F7C00E362D1 /* SettingViewController.swift in Sources */,

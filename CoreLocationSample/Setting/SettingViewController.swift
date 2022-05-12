@@ -9,6 +9,7 @@ import UIKit
 
 class SettingViewController: UIViewController {
     let pickerViewItems = ServiceItem.allCases.map { $0.rawValue }
+    let serviceItemRepository = ServiceItemRepository()
 
     @IBOutlet weak var servicePickerView: UIPickerView!
 
@@ -22,6 +23,8 @@ extension SettingViewController: UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let serviceItem = ServiceItem.allCases.filter { $0.rawValue == pickerViewItems[row] }.first!
+        serviceItemRepository.save(serviceItem: serviceItem)
     }
 }
 

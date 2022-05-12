@@ -31,7 +31,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G78-m7-OAz">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G78-m7-OAz" customClass="RequestViaTwitterButton" customModule="CoreLocationSample" customModuleProvider="target">
                                 <rect key="frame" x="124" y="423" width="166" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -52,6 +52,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="73.660714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="G78-m7-OAz">
+            <size key="intrinsicContentSize" width="130" height="60"/>
+        </designable>
+    </designables>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
